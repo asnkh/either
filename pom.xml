@@ -70,7 +70,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.asnkh.either.Main</mainClass>
+                            <mainClass>com.github.asnkh.either.demo.DemoMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
