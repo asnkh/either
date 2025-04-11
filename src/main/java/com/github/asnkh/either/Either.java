@@ -16,7 +16,7 @@ public sealed interface Either<A, B> permits Left, Right {
 		return new Left<>(a);
 	}
 	/**
-	 * Create an instance of {@link Right} containing the given value <code>b</code> of type <code>A</code> .
+	 * Create an instance of {@link Right} containing the given value <code>b</code> of type <code>B</code> .
 	 */
 	public static <A, B> Right<A, B> right(B b) {
 		return new Right<>(b);
