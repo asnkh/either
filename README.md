@@ -30,7 +30,7 @@ See `DemoMain.java` for the full code.
 # Use Case
 Can be used as the return type of any function that might fail.
 It is conventional to return the main result as right and the error object (typically an error message) as left
-(because 'right' impilies 'correct'!)
+(because 'right' implies 'correct'!)
 
 Although one could use checked exceptions to represent failures, using `Either` has several benefits:
 
