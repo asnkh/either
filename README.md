@@ -27,7 +27,7 @@ public class DemoMain {
 
 See `DemoMain.java` for the full code.
 
-# Usage
+# Use Case
 Can be used as the return type of any function that might fail.
 It is conventional to return the main result as right and the error object (typically an error message) as left
 (because 'right' impilies 'correct'!)
@@ -36,4 +36,9 @@ Although one could use checked exceptions to represent failures, using `Either` 
 
 * Creating an object of type `Either` is cheaper than creating an exception, which needs retrieval of stack trace.
 * One can use methods returning `Either` inside lambda functions without writing lengthy try-catch blocks.
+
+# Similar Types In Other Languages
+
+* Haskell: [Data.Either](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-Either.html)
+* Scala: [scala.util.Either](https://www.scala-lang.org/api/2.13.6/scala/util/Either.html)
 
