@@ -1,7 +1,8 @@
 # Either
 Either data type for Java 21+
 
-# Demo
+# Demo 1: Lucky Draw
+Run `demo-lucky-draw.sh` at the best timing and get the highest score!
 
 ```java
 import com.github.asnkh.either.Either;
@@ -31,6 +32,27 @@ public class DemoMain {
 ```
 
 See `DemoMain.java` for the full code.
+
+# Demo 2: Cat
+Unix command "cat" can be implemented essentially in less than 10 lines!
+Run `demo-cat.sh file1 file2 file3 ...` to output the concatenated contents of the files.
+
+```java
+public static void main(String[] args) {
+    ThrowingFunction<InputStream, String, IOException> readAll = is -> new String(is.readAllBytes(), StandardCharsets.UTF_8);
+    Stream.of(args)
+            .map(toFunctionReturningEither(FileInputStream::new))
+            .map(readAll::apply)
+            .forEachOrdered(either -> {
+                switch (either) {
+                    case Right(String s) -> System.out.println(s);
+                    case Left(IOException e) -> System.err.println(e.getMessage());
+                }
+            });
+}
+```
+
+See `DemoCat.java` for the full code.
 
 # Use Case
 Can be used as the return type of any function that might fail.
