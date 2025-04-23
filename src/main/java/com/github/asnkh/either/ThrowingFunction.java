@@ -9,7 +9,7 @@ public interface ThrowingFunction<T, R, E extends Exception> {
     R apply(T x) throws E;
 
     /**
-     * Apply this function object to argument of type either <code>T</code>, <code>E</code>,
+     * Apply this function object to argument of type <code>T</code>, <code>E</code>,
      * or any of their subclasses.
      */
     default Either<E, R> apply(Either<? extends E, ? extends T> either) {
@@ -18,7 +18,11 @@ public interface ThrowingFunction<T, R, E extends Exception> {
                 try {
                     R r = apply(t);
                     yield Either.right(r);
+                } catch (RuntimeException e) {
+                    throw e;
                 } catch (Exception e) {
+                    // This cast is justified because f can throw either E or RuntimeException
+                    // Note that we cannot declare catch (E e) here.
                     @SuppressWarnings("unchecked")
                     E ee = (E) e;
                     yield Either.left(ee);
