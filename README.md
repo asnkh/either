@@ -12,7 +12,12 @@ public class DemoMain {
 
     // Returns long as right and error message as left.
     static Either<String, Long> drawLucky() {
-        // ... implementation omitted
+        long x = some_random_function();
+        if (x < THRESHOLD) {
+            return Either.right(x);
+        } else {
+            return Either.left("some message");
+        }
     }
 
     public static void main(String[] args) {
