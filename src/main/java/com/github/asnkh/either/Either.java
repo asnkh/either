@@ -21,5 +21,5 @@ public sealed interface Either<A, B> permits Left, Right {
 	public static <A, B> Right<A, B> right(B b) {
 		return new Right<>(b);
 	}
-}
 
+}
